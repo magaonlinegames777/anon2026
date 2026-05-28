@@ -552,7 +552,7 @@ and (min-width: 0){
     bottom: 0;
     background-color: white;
     text-align: center;
-    z-index: 777;
+    z-index: 999;
 }
 .loader {
   margin: auto;
