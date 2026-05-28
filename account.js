@@ -18,8 +18,9 @@ $(document).ready(function(){
      // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       
-      db = firebase.firestore();
+    db = firebase.firestore();
 
+    setUserData();
 
  
     
