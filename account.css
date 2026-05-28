@@ -384,6 +384,7 @@
     display: inline-block;
     margin: auto;
     font-weight: bold;
+    line-break: anywhere;
 }
 .btcinfowarning{
     margin-top: 10px;
