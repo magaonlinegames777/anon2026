@@ -89,6 +89,10 @@ body{
     margin-top: 10px;
     /* border: 1px solid red; */
     width: 98%;
+    display: none;
+}
+.loginSection{
+    display: block;
 }
 #loginbtn{
     background-color: #343a40;
