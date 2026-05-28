@@ -23,21 +23,26 @@ $(document).ready(function(){
     // UPDATED ON  APRIL 18 2023
     // security_protector();
     
-  });
+});
 
 
 function movetoREGISTER(){
   console.log('MOVE TO REGISTER');
   
   findRandom();
-  $('.signinRegisterTxt').hide();
+  $('.loginSection').hide(); 
+  $('.registerSection').show(); 
+  $('.signinRegisterTxt').hide(); 
   $('.signinTxt').hide();
   $('.registerTxt').show();
+
 }
 
 function movetoLOGIN(){
   console.log('MOVE TO LOGIN');
   findRandom();
+  $('.loginSection').show(); 
+  $('.registerSection').hide();
   $('.signinRegisterTxt').hide();
   $('.registerTxt').hide();
   $('.signinTxt').show();
@@ -146,9 +151,11 @@ function signUp(){
 
     username = $('#username_input').val().toLowerCase();
    // email = $('#email_input').val().toLowerCase();
-    password = $('#password_input').val().toLowerCase();
+    password = $('#password_input').val();
     captureVerify = $('#verifyCapture').val();
 
+    console.log('signup='+username,captureVerify);
+    
     //VERIFY USER REGISTRATION  href="mailto:report@anon-bit101.io"
     if (username != '' && password != '') {
         if (captureVerify != '') {
@@ -230,17 +237,11 @@ function firebaseAddUser(username,password){
     })
     .then((docRef) => {
         console.log("ACCOUNT CREATED: ");
-        REGISTER_IP(client_id);
-        moveToLogin();
-        //APRIL 18 2022
-        $('.signups_ui').hide();
-        GET_IP_ADDRESS();
+        SAVE_SESSIONS('register',)
+        movetoLOGIN();
         //end of april
         $('.accountCreatedHides').hide();
         $('.accountSuccessCreate').removeClass('hide');
-        $('.accountSuccessInfo').text('Your account has successfully been created. Login Now');
-        $('.accountSuccessInfo').css('color','green');
-        $('#verifyCapture').val('');
     })
     .catch((error) => {
         console.error("Error adding document: ", error);
@@ -351,7 +352,7 @@ function firebaseGetUser(usernamepassword){
             console.log("No such document!");
             $('.loaderPage').hide();
             $('#loginerror_sec').text('Your account does not exist. Register for a new account');
-
+            closeErrors();
         }
     }).catch((error) => {
         console.log("Error getting document:", error);
