@@ -139,11 +139,7 @@ function SAVE_SESSIONS(x,IP,userID){
         return 0;
     });
 
-}
-                                                     
-
-
-
+}                                                   
 
 function signUp(){
     $('#signUp_btn').hide();
@@ -237,8 +233,16 @@ function firebaseAddUser(username,password){
     })
     .then((docRef) => {
         console.log("ACCOUNT CREATED: ");
-        SAVE_SESSIONS('register',)
-        movetoLOGIN();
+        var sesh = SAVE_SESSIONS('register',WHOAREYOU,client_id);
+        if (sesh == 1) {
+            console.log('sesh is 1');
+            // window.location.assign("account.html"); //Had to remove because it forced sending to DB
+            movetoLOGIN();
+        }if (sesh == 0) {
+            console.log('sesh is 0');
+            // window.location.assign("account.html"); //Had to remove because it forced sending to DB
+            movetoLOGIN();
+        }
         //end of april
         $('.accountCreatedHides').hide();
         $('.accountSuccessCreate').removeClass('hide');
@@ -253,8 +257,6 @@ function firebaseAddUser(username,password){
         );
     });
 }
-
-
 
 // LOGIN USER 
 function LOGIN_USER(){
@@ -319,8 +321,6 @@ function sortUser(images,captureVerify,username,password){
         }
 }
 
-
-
 function firebaseGetUser(usernamepassword){
     var user_id= usernamepassword;
     $('.loaderPage').show();
@@ -331,14 +331,16 @@ function firebaseGetUser(usernamepassword){
     docRef.get().then((doc) => {
         if (doc.exists) {
             console.log("Document data:", doc.data());
-
+            console.log('ip address: ' + WHOAREYOU);
+            
             var sesh= SAVE_SESSIONS('login',WHOAREYOU, user_id);
-            if (sesh = 1) {
+            alert(sesh);
+            if (sesh == 1) {
                 console.log('sesh is 1');
                 
                 window.location.assign("account.html");
             }
-            if (sesh = 0){
+            if (sesh == 0){
                 console.log('sesh is 0');
 
                 // failed to save sesh
@@ -354,9 +356,10 @@ function firebaseGetUser(usernamepassword){
             $('#loginerror_sec').text('Your account does not exist. Register for a new account');
             closeErrors();
         }
-    }).catch((error) => {
+    })
+    .catch((error) => {
         console.log("Error getting document:", error);
-        $('#loginerror_sec').text('Failed to login. Please try again...');
+        // $('#loginerror_sec').text('Failed to login. Please try again...');
         $('.loaderPage').hide();
         closeErrors();
 
@@ -367,6 +370,13 @@ function firebaseGetUser(usernamepassword){
 
 function closeErrors() {
     $('.errorTXT span').text('');
+}
+
+
+// move to account page
+function moveTOACCOUNTSPAGE(){
+    
+    window.location.assign("account.html");
 }
 
 
