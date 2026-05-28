@@ -62,6 +62,7 @@ function FIND_USERIP(ip){
 
 
 function GETUSER(DIRECTORY){
+    $('.loaderPage').show();
     var docRef = db.collection("accounts").doc(DIRECTORY);
 
     docRef.get().then((doc) => {
@@ -71,11 +72,21 @@ function GETUSER(DIRECTORY){
             balanceOfUser = doc.data().balance;
             nameOfUser = doc.data().username;
             setUserData();
+            moveTOACCOUNTSPAGE();
+
+
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
         }
     }).catch((error) => {
         console.log("Error getting document:", error);
+        $('.loaderPage').hide();
+
     });
 }
+
+function setUserData(){
+         $('.balance_txt').text(balanceOfUser);
+         $('#avatarname_bx').text(nameOfUser);
+  }
