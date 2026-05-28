@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+
+    <meta name="description" content="ANON BIT">
+    <meta name="author" content="NWO">
+    
+    <title>ANON BIT</title>
+    
+    <!-- Optional: Add favicon -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="account.css">
+    <link rel="icon" href="img/god.png">
+
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script> 
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+</head>
+
+<body>
+
+    <div class="loaderPage">
+        <div class="loader"></div>
+    </div>
+
+    <div class="accountpage">
+
+        <div class="glassblur hide">
+            <i class="material-icons red-text" id="cloe_navmenu_btn" onclick="closeMenuNav()">close</i>
+        </div>
+
+        <!-- side navigator -->
+        <div id="navigator_menu" class="acc_nav_bx acc_flts_bx scrollable">
+            <span class="acc_all_bx_img" id="logo_img_bx"></span>
+            <ul id="ul_section_1">
+                <li onclick="OPEN_THIS('dashboard')">Dashboard</li>
+                <li onclick="OPEN_THIS('orders')">
+                    Order History
+                </li>
+                <li onclick="OPEN_THIS('cart')">
+                    Cart
+                    <span class="cart_info infos">12</span>
+                </li>
+                <li onclick="OPEN_THIS('ticket')">
+                    Tickets
+                </li>
+                <li onclick="OPEN_THIS('ticket')">
+                    Support
+                </li>
+                <li onclick="OPEN_THIS('settings')">
+                    Settings
+                </li>
+                <li onclick="LOGOUT();">
+                    Log Out
+                </li>
+            </ul>
+
+            <hr>
+
+            <ul>
+                <div class="nav_title">
+                    <span>USA BANKS</span>
+                </div>
+
+                <li onclick="OPEN_THIS('wellsfargo')">Wells Fargo Bank</li>
+
+                <li onclick="OPEN_THIS('principal')">
+                    Principal Bank
+                </li>
+                <li onclick="OPEN_THIS('huntington')">
+                    Huntington Bank
+                </li>
+                <li onclick="OPEN_THIS('woodforest')">
+                    Woodforest Bank
+                </li>
+                <li onclick="OPEN_THIS('pnc')">
+                    PNC Bank
+                </li>
+                <li onclick="OPEN_THIS('citi')">
+                    Citi Bank
+                </li>
+                <li onclick="OPEN_THIS('chase')">
+                    Chase Bank
+                </li>
+                <li onclick="OPEN_THIS('suntrust')">
+                    Suntrust Bank
+                </li>
+                <li onclick="OPEN_THIS('hills')">
+                    Hills Bank
+                </li>
+
+                <div class="nav_title">
+                    <span>CANADA BANKS</span>
+                </div>
+
+                <li>TD Bank</li>
+                <li>RBC Bank</li>
+                <li>Scotia Bank</li>
+
+                <div class="nav_title">
+                    <span>COMPANY FULLZ & CHECKS</span>
+                </div>
+
+                <li>Company Fullz</li>
+                <li>Business Checks</li>
+                <li>Wire Checks</li>
+                
+                <div class="nav_title">
+                    <span>EUROPEAN BANKS</span>
+                </div>
+
+                <li>Barclays Bank (UK)</li>
+                <li>Llyod Bank (UK)</li>
+                <li>HSBC Bank (UK) </li>
+
+                <div class="nav_title">
+                    <span>SSN FULLZ</span>
+                </div>
+
+                <li>Bulk NY SSN Fullz</li>
+                <li>Bulk Cali SSN Fullz</li>
+                <li>Bulk OH SSN Fullz</li>
+                <li>Bulk TX SSN Fullz</li>
+                <li>Bulk FL SSN Fullz</li>
+                <li>Bulk AZ SSN Fullz</li>
+            </ul>
+        </div>
+
+        <!-- top header / logo and balance  -->
+        <div class="acc_head_bx acc_all_bx">
+            <span class="acc_all_bx_img" id="logo_img_bx"></span>
+
+           
+           
+
+
+            <div class="acc_right_bx">
+                <!-- menu for ss -->
+                <span class="acc_all_bx_img " id="menu_bx" onclick="openMenuNav();">
+                    <i class="material-icons">menu</i>
+                </span>
+
+                <!-- profile avatar -->
+                <span class="acc_all_bx_img " id="avatar_bx" onclick="OPEN_THIS('settings')">
+                    <span class="acc_all_bx_img " id="avatarname_bx">_</span>
+                </span>
+
+                <!-- balance  -->
+                <span class="balance_bx acc_all_bx_img" id="balance_bx" onclick="top_up_account();"> 
+                    <i class="material-icons">add_circle</i>
+                    $<span class="balance_txt"></span>
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- body contents -->
+        <div class="acc_contents_bx acc_flts_bx scrollable">
+
+            <!-- DASHBOARD -->
+            <div class="dashboard_section dashboard_sectionall">
+                <div class="dashboard_views" id="dashboard_view_1">
+                    <div class="dashboard-bx_holder balance_holder">
+                        <div>
+                            <span class="dashboard_titles">Balance</span>
+                        </div>
+                        <div>
+                            $<span class="data_text balance_txt">0.00</span>
+                        </div>
+
+                        <i class="material-icons ii">wallet</i>
+                    </div>
+
+                    <div class="dashboard-bx_holder orders_holder">
+                        <div>
+                            <span class="dashboard_titles">Your Orders</span>
+                        </div>
+                        <div>
+                            <span class="data_text">0</span>
+                        </div>
+
+                        <i class="material-icons ii">add_shopping_cart</i>
+                    </div>
+
+                    <div class="dashboard-bx_holder orders_holder">
+                        <div>
+                            <span class="dashboard_titles">Tickets</span>
+                        </div>
+                        <div>
+                            <span class="data_text">0</span>
+                        </div>
+
+                        <i class="material-icons ii">local_play</i>
+                    </div>
+                </div>
+                <div class="dashboard_views">
+                    <div class="dashboard-bx_activity_holder">
+                        <table id="dashboard_table">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Activity Info </th>
+                                <th>Account Added</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="dashboard-account_added">
+                                    <span>12</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="dashboard-account_added">
+                                    <span>12</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="dashboard-account_added">
+                                    <span>12</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+             <!-- ORDERS -->
+            <div class="order_section dashboard_sectionall hide">
+                <div class="dashboard_views">
+                    <div class="ordersection_title allSection_titles">
+                        <span>Purchased Orders</span>
+                        <hr>
+                    </div>
+                    <table id="dashboard_table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date of payment</th>
+                                <th>Title </th>
+                                <th>Sum</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="order-sum_txt">
+                                    <span>12</span>
+                                </td>
+                                <td>
+                                    <a download="logdetails.zip">download</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="order-sum_txt">
+                                    <span>12</span>
+                                </td>
+                                <td>
+                                    <a download="logdetails.zip">download</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="order-sum_txt">
+                                    <span>12</span>
+                                </td>
+                                <td>
+                                    <a download="logdetails.zip">download</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="nothing">
+                        You have no products added in your Orders
+                    </div>
+                </div>
+            </div>
+
+            <!-- SHOPPING CART -->
+            <div class="cart_section dashboard_sectionall hide">
+                <div class="dashboard_views">
+                    <div class="cartsection_title allSection_titles">
+                        <span>Shopping Cart</span>
+                        <hr>
+                    </div>
+                    <table id="dashboard_table">
+                        <thead>
+                            <tr>
+                                <th>Date of payment</th>
+                                <th>Title </th>
+                                <th>Sum</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="order-sum_txt">
+                                    <span>120</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="order-sum_txt">
+                                    <span>212</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>19/05/2026</td>
+                                <td>Wells Fargo</td>
+                                <td class="order-sum_txt">
+                                    <span>412</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="nothing">
+                        You have no products added in your Shopping Cart
+                    </div>
+                </div>
+            </div>
+
+            <!-- TICKET -->
+            <div class="ticket_section dashboard_sectionall hide">
+                <div class="dashboard_views">
+                    <div class="cartsection_title allSection_titles">
+                        <span>Create a new ticket</span>
+                        <hr>
+                    </div>
+
+                    <div class="ticket_info_bx">
+                        <div class="allTIcketsBX" id="ticket_warning_txt_bx">
+                            <span>Warning: </span>
+                            When adding funds expect 1 confirmations. 
+                            if you confirmed 1 of them, but the money 
+                            has not transfered to the account, open a 
+                            ticket
+                        </div>
+
+                        <div class="allTIcketsBX" id="ticket_warning_txt_yellow_bx">
+                            <ul>
+                                <li>In tickets is forbidden:</li>
+                                <li>use foul language</li>
+                                <li>DDOS attacks will be dealt with full force</li>
+                                <li>your question should make sense with plain english</li>
+                                <li>dispute with admin group</li>
+                                <li>providing false information, your account will be blocked immediatelly!!!</li>
+                                <li>opening two or more tickets per one order will charge a dollar from your account</li>
+                                <li>ignore ticket: if the ticket is not answered by the seller or the buyer more than 24h. ticket is automatically closed in favor of who is ignored.</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="row ticket_form_bx">
+                        <div class="input-field col s12">
+                            <input value="" id="ticket_subject" type="text" class="validate">
+                            <label class="active" for="ticket_subject">Type the subject</label>
+                            <p class="errorTXT" id="subject_error_txt"></p>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input value="" id="ticket_email" type="text" class="validate">
+                            <label class="active" for="ticket_email">Enter your email</label>
+                            <p class="errorTXT" id="email_error_txt"></p>
+
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input id="ticket_message" type="text" class="validate">
+                            <label for="ticket_message">Message</label>
+                            <p class="errorTXT" id="message_error_txt"></p>
+
+                        </div>
+                            <p class="errorTXT" id="general_error_txt"></p>
+
+                        <div class="ticket_success hide"> 
+                            <p>Thank you for your <span>message</span> You will be attended to soon</p>
+                        </div>
+
+                        <div class="ticket_send_btn">
+                            <a class="btn" onclick="sendSupport();">Send</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SETTINGS -->
+             <div class="settings_section dashboard_sectionall hide">
+                <div class="dashboard_views" id="settings_menu_bx">
+                    <div class="dashboard-bx_holder">
+                        <div class="ordersection_title allSection_titles">
+                            <span>Menu</span>
+                            <hr>
+                        </div>
+
+                        <ul>
+                            <li>
+                                <a>Change Password</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dashboard_views" id="settings_menuinput_bx">
+                    <div class="dashboard-bx_holder" id="settings_dashboard_holder">
+                        <div class="ordersection_title allSection_titles">
+                            <span>Password</span>
+                            <hr>
+                        </div>
+
+                        <div class="change_password_form">
+                            <div class="cpf_holder">
+                                <label for="current_password">Current Password</label>
+                                <input type="text" name="current_password">
+                            </div>
+
+                            <div class="cpf_holder">
+                                <label for="new_password">New Password</label>
+                                <input type="text" name="new_password">
+                            </div>
+
+                            <div class="cpf_holder">
+                                <label for="verify_password">Verify Password</label>
+                                <input type="text" name="verify_password">
+                            </div>
+
+                            <div class="errorTXT">
+                                <span></span>
+                            </div>
+
+                            <div class="cpf_send_btn">
+                                <a class="btn black">Change Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOGS INFO BOXES -->
+             <div class="logs_section dashboard_sectionall hide">
+                <div class="bankio_section">
+
+                    <div class="bankio_title_bx">
+                        <span class="bankio_name">Wells Fargo Bank</span>
+                        <span class="bankio_lbl">
+                            Full access info including Online Logins, Account/Routine number, Email login and password.
+                        </span>
+                    </div>
+
+                    <div class="bankio_table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Balance</th>
+                                <th>Title</th>
+                                <th>Info</th>
+                                <th>Price</th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="bankio_table_body">
+                            <tr>
+                                <td>$14,000</td>
+                                <td>business</td>
+                                <td>Huntington.com [Login:Password]+Name+Address+[Email access]</td>
+                                <td>$210</td>
+                                <td>
+                                    <a class="btn green">BUY NOW</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FIXED INFORMATION DEPARTMENT -->
+             <div class="fixed_info_dept hide">
+
+                <div class="news_card">
+                    <span class="card_content">
+                        Are you sure you want to Log out?
+                    </span>
+                    <div class="btnBX">
+                        <a class="btn">Yes</a>
+                        <a class="btn red">No</a>
+                    </div>
+                </div>
+
+             </div>
+
+            <!-- SHOW BTC ADDRESS -->
+            <div class="dashboard_sectionall show_btc_addy hide">
+                <div class="showbtcsection hide">
+                    <div class="btcbox">
+                        <p id="btcTXT">btc8378228372837fdsdfdfdfdf3232938sddsd</p>
+                        <span class="blurs"></span>
+                    </div>
+                    <div class="btcbtns">
+                        <a class="btn grey" id="show_btc_btn" onclick="showBTC(); TOPUPS();">SHOW BTC ADDRESS</a>
+                        <a class="btn grey hide" id="click_to_copy_btn" onclick="copyTEXT(); TOPUPS();"> CLICK TO COPY </a>
+                    </div>
+
+                    <div class="btcinfowarning">
+                        <span>Make sure to deposit to the address above.</span>
+                        <span class="btcinfowarning1 hide">Once deposit is completed, your account will be credited immediatelly</span>
+                    </div>
+                </div>
+
+                <div class="product_buying_table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th> </th>
+                                <th>Price</th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="bankio_table_body youwanttobuyTABLE">
+                            <tr>
+                                <td id="product_name"></td>
+                                <td id="product_info">
+                                    This account contains a balance of  
+                                    <span class="gtxt">$</span><span id="logs_balance_amount"></span>
+                                    and it is a 
+                                    <span id="logs_account_type"></span>
+                                    account.
+                                </td>
+                                <td id="product_price" class="allProdPrice"> $</td>
+                                <td></td>
+                            </tr>
+                            <tr class="productBOTSECTION allProductsSecs">
+                                <td class="productsAdded" id="bot_auth">
+                                    <i class="material-icons">warning</i>
+                                    <span>OTP Authenticator BOT added</span>
+                                </td>
+                                <td  id="bot_info">this bot generate Two (2) Factor Authentication Code via telegram</td>
+                                <td  id="bot_price" class="allProdPrice"> $150</td>
+                                <td class="productsAddedCloseBTN hide">
+                                    <i class="material-icons">close</i>
+                                </td>
+                            </tr>
+                            <tr class="productVPNSECTION allProductsSecs">
+                                <td class="productsAdded" id="bot_auth">
+                                    <i class="material-icons">warning</i>
+                                    <span>Private Server Network [VPN] (optional):</span>
+                                </td>
+                                <td id="bot_info">
+                                    securely allocates recent ip address used by client. 
+                                    it uses encryption and tunneling to create a protected communication channel
+                                </td>
+                                <td id="bot_price" class="allProdPrice"> $100</td>
+                                <td class="productsAddedCloseBTN">
+                                    <i class="material-icons" onclick="closeVPN();">close</i>
+                                </td>
+                            </tr>
+                            <tr class="productEMAILFLOOD allProductsSecs">
+                                <td class="productsAdded" id="bot_auth">
+                                    <i class="material-icons">warning</i>
+                                    <span>Email & SMS flooding (optional):</span>
+                                </td>
+                                <td id="bot_info">
+                                    floods clients email address with news and articles from 100s of verified outlets.
+                                </td>
+                                <td id="bot_price" class="allProdPrice"> $100</td>
+                                <td class="productsAddedCloseBTN">
+                                    <i class="material-icons" onclick="closeEMAILFLDD()">close</i>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                </div>
+
+                <div class="product_total_bx">
+                    <div class="pd_totalBX">
+                        <span class="pdLabel">Total:</span>
+                        <span class="pdTXT" id="product_total_txt"> </span>
+                        <br>
+                        <span class="pdLabel">btc:</span>
+                        <span class="pdTXT" id="product_total_btctxt"> </span>
+                    </div>
+                </div>
+
+                <div class="product_buy_bx">
+                    <a class="btn black" onclick="buyNOW();">BUY NOW</a>
+                </div>
+
+                <!-- PRODUCT SUCCESSFULLY PURCHASED -->
+                 <div class="product_success hide">
+                    <p>
+                        You have successsfully purchased a <span class="product_name">Wells Fargo</span> product.
+                        You will be automatically redirected to My Orders to download file. 
+                    </p>
+                 </div>
+
+                 <!-- PRODUCT FAILED PURCHASED -->
+                 <div class="product_insufficientBalance hide">
+                    <p>
+                        Your purchase  <span class="product_failed">FAILED TO PROCESS</span>.
+                        This is due to <span class="due_to">INSUFFICIENT BALANCE</span> 
+                    </p>
+                 </div>
+
+               
+            </div>
+        </div>
+
+    </div>
+
+        <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></script>
+    <script src="account.js"></script>
+    <script src="connector.js"></script>
+</body>
+</html>

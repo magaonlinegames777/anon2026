@@ -1,0 +1,571 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.scrollable {
+  overflow: auto;        /* allows scrolling */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;         /* Chrome, Safari, Edge */
+}
+
+.accountpage{
+    /* background-color: red; */
+    background-image: url('img/pic1.JPG');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* side navigator */
+.acc_nav_bx{
+    width: 26%;
+    min-width: 200px;
+    background-color: #6c757d;
+    height: 100%;
+}
+.acc_nav_bx ul{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* border: 1px solid red; */
+    margin-left: 6px;
+}
+.nav_title{
+    margin-top: 25px;
+    color: white;
+}
+.acc_nav_bx ul li{
+    color: #b9b9b9;
+    cursor: pointer;
+}
+.acc_nav_bx ul li:hover{
+    color: white;
+}
+#ul_section_1{
+    margin-top: 100px;
+}
+.acc_flts_bx{
+    float: left;
+}
+.infos{
+    background-color: red;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    font-size: 6px;
+    padding: 4px;
+    color: white;
+}
+/* body contents bx */
+.acc_contents_bx{
+    width: 66%;
+    height: 87%;
+    margin-top: 100px;
+    /* background-color: grey; */
+}
+
+
+
+/* HEAD TOP */
+.acc_head_bx{
+    position: fixed;
+    top: 0;
+    background-color: #ffffffe8;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: 666;
+}
+.acc_all_bx_img{
+    background-size: cover;
+    background-position: center;
+    display: block;
+    float: right;
+}
+#logo_img_bx{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 2%;
+    background-image: url('img/god.png');
+
+}
+
+/* FLOAT RIGHT ACC */
+.flt_ryt{
+    float: right;
+    display: block;
+}
+#menu_bx{
+    margin-top: 6px;
+    cursor: pointer;
+}
+.acc_right_bx{
+    /* background-color: blue; */
+    width: 165px;
+    position: absolute; 
+    right: 0;
+    padding: 3px;
+    top: 27px;
+    
+}
+#avatar_bx{
+    width: 33px;
+    height: 33px;
+    display: block;
+    border-radius: 50%;
+    background-image: url(img/avatar.png);
+    margin-right: 4px;
+    margin-left: 4px;
+}
+#avatarname_bx{
+    position: relative;
+    right: -1%;
+    bottom: -34px;
+}
+#balance_bx{
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+    top: 17px;
+    right: 61px;
+    margin: 2%;
+    cursor: pointer;
+}
+#balance_bx i{
+    top: 3px;
+    position: relative;
+    font-size: 17px;
+}
+
+
+.acc_contents_bx{
+}
+
+/* dashboard */
+.dashboard_sectionall{
+    position: relative;
+    overflow: auto;
+    padding: 30px;
+    width: 90%;
+    margin: auto;
+    margin-top: 26px;
+    border-radius: 9px;
+    background-color: rgb(255 255 255);
+}
+.dashboard_section{
+    background-color: rgb(65 65 65 / 59%);
+}
+
+.dashboard_views{
+    float: left;
+    width: 48%;
+    /* background-color: yellow; */
+}
+.dashboard_section .dashboard_views{
+    width: 65%!important;
+}
+#dashboard_view_1{
+    width: 35%!important;
+}
+
+.dashboard-bx_holder{
+    background-color: white;
+    color: black;
+    width: 96%;
+    padding: 34px;
+    position: relative;
+    margin: 6px;
+    border-radius: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.dashboard_views i{
+    position: absolute;
+    right: 10%;
+    top: 39%;
+}
+.dashboard_titles{
+    font-weight: bold;
+    font-size: 17px;
+}
+.allSection_titles{
+    font-size: 20px;
+}
+.data_text{
+    font-size: 14px;
+}
+
+.dashboard-account_added{
+    text-align: center;
+    padding-right: 10%;
+}
+.dashboard-account_added span{
+    display: inline-block;
+    background-color: red;
+    padding: 3px;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+
+.nothing{
+    text-align: center;
+    background-color: grey;
+}
+/* dashboard activity */
+.dashboard-bx_activity_holder{
+    background: white;
+    padding: 14px;
+    border-radius: 3px;
+    margin: 6px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+/* orders section */
+.order_section .dashboard_views{
+    width: 100%;
+
+}
+
+/* cart section */
+.cart_section .dashboard_views{
+    width: 100%;
+}
+
+/* ticket section */
+.ticket_section .dashboard_views{
+    width: 100%;
+}
+.ticket_info_bx{
+    width: 90%;
+    margin: auto;
+}
+.allTIcketsBX{
+    padding: 23px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+#ticket_warning_txt_bx{
+    background-color: #d1ecf1;  
+}
+#ticket_warning_txt_bx span{
+    font-weight: bold;
+}
+
+#ticket_warning_txt_yellow_bx{
+    background-color: #ffffad;
+}
+#ticket_warning_txt_yellow_bx ul li{
+    margin-top: 3px;
+}
+
+.ticket_form_bx{
+    width: 90%;
+    margin: auto;
+}
+
+.ticket_send_btn{
+    text-align: center;
+}
+.ticket_send_btn a{
+    background-color: grey;
+}
+.ticket_success span{
+    color: green;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+/* settings section*/
+.errorTXT{
+    width: 98%;
+    margin: auto;
+    color: red;
+    font-size: 13px;
+}
+#settings_menu_bx{
+    width: 35%!important;
+}
+#settings_menuinput_bx{
+    width: 65%!important;
+}
+#settings_dashboard_holder{
+    width: 95%;
+}
+.settings_section ul{
+    margin-top: 8px;
+}
+
+.cpf_holder input{
+    border: 1px solid black!important;
+    border-radius: 30px!important;
+    padding-left: 12px!important;
+}
+
+.cpf_send_btn{
+    text-align: center;
+}
+.cpf_send_btn a{
+    border-radius: 24px;
+}
+
+/* logs bankio section */
+.bankio_title_bx{
+    background-color: black;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    color: white;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.bankio_name{
+    display: block;
+}
+.bankio_lbl{
+    display: block;
+}
+.bankio_section table th, .bankio_section table td{
+    border: 1px solid grey;
+    text-align: center;
+
+}
+.productBuyNowBTN{
+    text-align: center;
+}
+/* fixed info dept */
+.fixed_info_dept{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: #a4a4a4;
+    z-index: 667;
+}
+
+.news_card{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 30px;
+    border-radius: 9px;
+    position: absolute;
+    width: 275px;
+    right: 0;
+    left: 25%;
+    top: 14%;
+}
+.news_card .card_content{
+    font-size: 20px;
+}
+.news_card .btnBX{
+    margin-top: 13px;
+}
+
+/* SHOW BTC ADDY */
+.btcbox{
+    border: 1px solid grey;
+    width: 100%;
+    padding: 11px;
+    text-align: center;
+    position: relative;
+}
+.btcbox p{
+    font-size: 18px;
+    display: inline-block;
+    margin: auto;
+    font-weight: bold;
+}
+.btcinfowarning{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btcinfowarning span{
+    display: block;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.btcbtns{
+    padding: 10px;
+}
+.btcbtns a{
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+.product_total_bx{
+    overflow: hidden;
+}
+.pd_totalBX{
+    width: 40%;
+    min-width: 280px;
+    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    float: right;
+    text-align: right;
+}
+.pdLabel{
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.pdTXT{
+    font-size: 26px;
+}
+.allProdPrice{
+    font-weight: bold;
+}
+
+.blurs{
+    height: 46px;
+    /* min-height: 81px; */
+    width: 100%;
+    background-color: #6c757d;
+    filter: blur(5px);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.product_buy_bx{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.product_success{
+    font-size: 20px;
+}
+.product_success .product_name{
+    color: green;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+.product_failed{
+    color: red;
+}
+.due_to{
+    color: red;
+}
+.productsAdded i{
+    font-size: 15px;
+}
+
+.productsAddedCloseBTN{
+    color: red;
+}
+.productsAddedCloseBTN i{
+    cursor: pointer;
+}
+
+#logs_balance_amount{
+    color: green;
+    font-weight: bold;
+}
+
+.show_btc_addy #product_name{
+    text-transform: capitalize;
+}
+
+.gtxt{
+    color: green;
+    font-weight: bold;
+}
+
+.product_insufficientBalance{
+    margin-top: 32px;
+    text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 590px) 
+and (min-width: 0){
+    .acc_contents_bx{
+        width: 100%;
+    }
+    .acc_nav_bx{
+        position: fixed;
+        z-index: 777;
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 540px) 
+and (min-width: 0){
+    .dashboard_views {
+        float: none;
+    }
+
+
+    #dashboard_view_1, #settings_menu_bx,
+    #settings_menuinput_bx {
+    width: 90% !important;
+    }
+
+    .dashboard_section .dashboard_views {
+    width: 90% !important;
+    }
+
+
+    
+}
+
+
+.glassblur{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    z-index: 776;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#cloe_navmenu_btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 23px;
+    cursor: pointer;
+}
+
+
+.loaderPage{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    text-align: center;
+    z-index: 777;
+}
+.loader {
+  margin: auto;
+  margin-top: 20%;
+  border: 8px solid #f3f3f3;       /* Light grey background */
+  border-top: 8px solid #3498db;   /* Blue top border */
+  border-radius: 50%;              /* Make it circular */
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite; /* Rotate continuously */
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

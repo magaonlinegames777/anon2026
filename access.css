@@ -1,0 +1,158 @@
+body{
+    background-color: black;
+    min-height: 100vh;
+    background-image: url('background.JPG');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.loginHolderMain{
+    background-color: rgb(231, 231, 231);
+    max-width: 417px;
+    padding: 10px 20px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 7px;
+    padding-bottom: 70px;
+}
+#login_navigate{
+    cursor: pointer;;
+}
+.registerTxt{
+    display: none;
+}
+.signinRegisterTxt span{
+    display: block;
+    font-size: 19px;
+}
+#sigininTxt_1{
+    font-size: 17px!important;
+}
+.inputSection input{
+    display: block;
+    border-radius: 7px;
+    padding: 6px;
+    border-color: white ;
+    width: 95%;
+}
+
+#passwordInput{
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+.captureSection{
+    margin-top: 6px;
+    position: relative;
+    overflow: auto;
+    height: 35px;
+}
+.humanChecker{
+    display: inline-block;
+    width: 48%;
+    height: 31px;
+    background-color: white;
+    float: left;
+}
+.humanChecker img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.veriInput {
+    position: relative;
+    /* margin-top: 4px;
+    margin-left: 4px; */
+    /* display: inline-block; */
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    margin-left: 4px;
+    position: relative;
+}
+.veriInput input{
+    width: 88%;
+    padding: 6px;
+    border-radius: 7px;
+    border-color: white;
+    float: right;
+
+}
+
+
+
+.loginResgisterBTNSection{
+    margin-top: 10px;
+    /* border: 1px solid red; */
+    width: 98%;
+}
+#loginbtn{
+    background-color: #343a40;
+    width: 96%;
+    display: block;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.errorTXT{
+    color: red;
+    font-size: 13px;
+    padding: 13px;
+    height: 10px;
+    text-align: left;
+}
+#loginerror_sec{
+    text-align: center;
+}
+.navigate{
+    margin-top: 10px;
+}
+.navigate a{
+    color: blue;
+}
+#signup_navigate{
+    cursor: pointer;
+}
+
+
+
+/* ALL TIME */
+.hide{
+    display: none;
+}
+
+
+
+.loaderPage{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    text-align: center;
+    z-index: 777;
+}
+.loader {
+  margin: auto;
+  margin-top: 20%;
+  border: 8px solid #f3f3f3;       /* Light grey background */
+  border-top: 8px solid #3498db;   /* Blue top border */
+  border-radius: 50%;              /* Make it circular */
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite; /* Rotate continuously */
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+
+    <meta name="description" content="ANON BIT">
+    <meta name="author" content="NWO">
+    
+    <title>ANON BIT</title>
+    
+    <!-- Optional: Add favicon -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="access.css">
+    <link rel="icon" href="god.png">
+
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script> 
+</head>
+
+<body>
+
+    <div class="loaderPage">
+        <div class="loader"></div>
+    </div>
+
+    <main class="loginHolderMain">
+        <section class="signinTxt signinRegisterTxt">
+            <span>Sign in</span>
+            <span id="sigininregisterTxt_1"> We're so excited to see you again!</span>
+        </section>
+
+        <section class="registerTxt signinRegisterTxt">
+            <span>Register</span>
+            <span id="sigininregisterTxt_1"> Create your account now!</span>
+        </section>
+        <hr>
+
+        <section class="inputSection">
+            <span>Username</span>
+            <input type="text" id="username_input">
+            <br>
+            <span>Password</span>
+            <input type="text" id="password_input">
+        </section>
+        <section class="errorTXT">
+            <span id="login_password_error"> </span>
+        </section>
+
+        <section class="captureSection">
+            <span class="humanChecker">
+                  <img alt="verification" id="captureImg" src="0.JPG">
+            </span>
+            <span class="veriInput">
+                  <input type="text" placeholder="Captcha" id="verifyCapture">
+            </span>
+        </section>
+
+        <section class="loginSection loginResgisterBTNSection">
+            <a id="loginbtn" onclick="LOGIN_USER();">Log in</a>
+        </section>
+        <section class="registerSection loginResgisterBTNSection hide">
+            <a id="loginbtn" onclick="signUp();">Sign up</a>
+        </section>
+
+        <section class="errorTXT">
+            <span id="loginerror_sec"> </span>
+        </section>
+
+
+        <section class="navigate signupNavigate signinTxt">
+            Not a member yet? <a id="signup_navigate" onclick="movetoREGISTER();">Sign up</a>
+        </section>
+        <section class="navigate loginNavigate registerTxt">
+            Already a member? <a id="login_navigate" onclick="movetoLOGIN();">Log in</a>
+        </section>
+    </main>
+
+        <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></script>
+    <script src="access.js"></script>
+    <script src="connector.js"></script>
+</body>
+</html>
