@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 function movetoREGISTER(){
   console.log('MOVE TO REGISTER');
-  
+  clearAllInputs();
   findRandom();
   $('.loginSection').hide(); 
   $('.registerSection').show(); 
@@ -40,6 +40,7 @@ function movetoREGISTER(){
 
 function movetoLOGIN(){
   console.log('MOVE TO LOGIN');
+  clearAllInputs();
   findRandom();
   $('.loginSection').show(); 
   $('.registerSection').hide();
@@ -131,6 +132,7 @@ function SAVE_SESSIONS(x,IP,userID){
     })
     .then(() => {
         console.log("session successfully written!");
+        moveTOACCOUNTSPAGE();
         return 1;
 
     })
@@ -246,6 +248,7 @@ function firebaseAddUser(username,password){
         //end of april
         $('.accountCreatedHides').hide();
         $('.accountSuccessCreate').removeClass('hide');
+        movetoLOGIN();
     })
     .catch((error) => {
         console.error("Error adding document: ", error);
@@ -256,6 +259,10 @@ function firebaseAddUser(username,password){
             },3000
         );
     });
+}
+
+function clearAllInputs(){
+    $('.inputSection input').val('');
 }
 
 // LOGIN USER 
@@ -333,21 +340,25 @@ function firebaseGetUser(usernamepassword){
             console.log("Document data:", doc.data());
             console.log('ip address: ' + WHOAREYOU);
             
-            var sesh= SAVE_SESSIONS('login',WHOAREYOU, user_id);
-            alert(sesh);
-            if (sesh == 1) {
-                console.log('sesh is 1');
-                
-                window.location.assign("account.html");
-            }
-            if (sesh == 0){
-                console.log('sesh is 0');
+            var sesh = SAVE_SESSIONS('login',WHOAREYOU, user_id);
 
-                // failed to save sesh
-                $('.loaderPage').hide();
-                $('#loginerror_sec').text('Failed to save. Try again later.');
-                closeErrors();
-            }
+            setTimeout(() => {
+                // alert(sesh);
+                if (sesh == 1) {
+                    console.log('sesh is 1');
+                    
+                    window.location.assign("account.html");
+                }
+                if (sesh == 0){
+                    console.log('sesh is 0');
+
+                    // failed to save sesh
+                    $('.loaderPage').hide();
+                    $('#loginerror_sec').text('Failed to save. Try again later.');
+                    closeErrors();
+                }
+            }, 4444);
+           
             // INTEL(doc.data().username, doc.data().balance);
         } else {
             // doc.data() will be undefined in this case
@@ -375,7 +386,7 @@ function closeErrors() {
 
 // move to account page
 function moveTOACCOUNTSPAGE(){
-    
+
     window.location.assign("account.html");
 }
 
